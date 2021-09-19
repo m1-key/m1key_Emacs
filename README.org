@@ -1,0 +1,5 @@
+* Welcome to m1keymacs
+  A custom init.el, full of highly optimised package and cool theme.
+  Packages like *magit* for git, *counsel* for navigation and *lsp* mode 
+
+** More Documentation coming soon ...  
