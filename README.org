@@ -3,11 +3,17 @@
   Packages like *magit* for git, *counsel* for navigation and *lsp* mode
   
 * m1keymacs
+  - [[#package-source][Package Source]]
+  - [[#setting-custom-font][Setting Custom Font]]
+  - [[#doom-theme][Doom Theme]]
+  - [[#doom-modeline][Doom Modeline]]
+  - More to come :)
+    
 ** Package Source
    Here I have used multiple package sources like *melpa*, *elpa* and *org*.\\
-   *Elpa* is the default package archive of emacs.\\
-   *Melpa* gives us wide range of useful as well as notorious packages which we
-   can use to customise emacs.\\
+   - *Elpa* is the default package archive of emacs.
+   - *Melpa* gives us wide range of useful as well as notorious packages which we
+   can use to customise emacs.
 ** Setting Custom Font
    #+begin_src emacs-lisp
      (set-face-attribute 'default nil
@@ -44,3 +50,4 @@
        :init(doom-modeline-mode 1))
    #+end_src
    You can find more about /doom-modeline/ [[https://github.com/seagle0128/doom-modeline][here]]
+** More to come ...
