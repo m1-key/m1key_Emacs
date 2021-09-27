@@ -18,6 +18,8 @@
 ;; Set uo the visible bell
 (setq visible-bell t)
 
+(setq auth-sources '("~/.authinfo.gpg"))
+
 ;; Initialize package sources
 (require 'package)
 
@@ -25,13 +27,6 @@
                          ("melpa-stable" . "https://stable.melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")
                          ("elpa" . "https://elpa.gnu.org/packages/")))
-
-;; Set default font
-(set-face-attribute 'default nil
-                    :family "FantasqueSansMono Nerd Font Mono"
-                    :height 110
-                    :weight 'normal
-                    :width 'normal)
 
 (package-initialize)
 (unless package-archive-contents
@@ -45,6 +40,13 @@
 (setq use-package-always-ensure t)
 
 (use-package command-log-mode)
+
+;; Set default font
+(set-face-attribute 'default nil
+                    :family "FantasqueSansMono Nerd Font Mono"
+                    :height 110
+                    :weight 'normal
+                    :width 'normal)
 
 (use-package doom-themes
   :ensure t
@@ -64,6 +66,16 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
+(use-package doom-modeline
+  :ensure
+  :init(doom-modeline-mode 1))
+
+;; Source code blocks shortcuts
+(require 'org-tempo)
+
+(add-to-list 'org-structure-template-alist '("sh" . "src sh"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
 
 (column-number-mode)
 (global-display-line-numbers-mode t)
@@ -95,10 +107,6 @@
          ("C-d" . ivy-reverse-i-search-kill))
   :config
   (ivy-mode 1))
-
-(use-package doom-modeline
-  :ensure
-  :init(doom-modeline-mode 1))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -140,6 +148,8 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
+(use-package forge)
+
 (use-package org
   :config
   (setq org-ellipsis " ▾"))
@@ -176,7 +186,7 @@
   :commands (lsp lsp-deferred)
   :hook (lsp-mode . m1key/lsp-mode-setup)
   :init
-  (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
+  (setq lsp-keymap-prefix "C-c l")  ;; Predefined to 's-l' (Super + l)
   :config
   (lsp-enable-which-key-integration t))
 
@@ -196,3 +206,4 @@
 ;; My Keys
 (global-set-key (kbd "M-z") 'vterm)
 (global-set-key (kbd "C-c f") 'format-all-buffer)
+(global-set-key (kbd "C-c C-p") 'forge-pull)
