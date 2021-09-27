@@ -2,19 +2,31 @@
   A custom init.el, full of highly optimised package and cool theme.
   Packages like *magit* for git, *counsel* for navigation and *lsp* mode
   
-* m1keymacs
+* Table of Contents
   - [[#package-source][Package Source]]
   - [[#setting-custom-font][Setting Custom Font]]
   - [[#doom-theme][Doom Theme]]
   - [[#doom-modeline][Doom Modeline]]
-  - More to come :)
+  - [[#line-number][Line Number]]
+  - [[#counsel][Counsel]]
+  - [[#ivy][Ivy]]
+  - [[#rainbow-delimiters][Rainbow Delimiters]]
+  - [[#which-key][Which Key]]
+  - [[#helpful][Helpful]]
+  - [[#magit][Magit]]
+  - [[#forge][Forge]]
+  - [[#lsp-mode][Lsp Mode]]
+  - [[#flycheck][Flycheck]]
+  - [[#little-tweaks][Little Tweaks]]
+    - [[#org][Org]]
+    - [[#org-bullets][Org Bullets]]
+    - [[#fish-completion][Fish completion]]
     
-** Package Source
+* Package Source
    Here I have used multiple package sources like *melpa*, *elpa* and *org*.\\
    - *Elpa* is the default package archive of emacs.
-   - *Melpa* gives us wide range of useful as well as notorious packages which we
-   can use to customise emacs.
-** Setting Custom Font
+   - *Melpa* gives us wide range of useful as well as notorious packages which we can use to customise emacs.
+* Setting Custom Font
    #+begin_src emacs-lisp
      (set-face-attribute 'default nil
 			 :family "FantasqueSansMono Nerd Font Mono"
@@ -25,7 +37,7 @@
    You can use any font of your choice using above source code in your *init.el*.
    Here I have used *FantasqueSansMono Nerd Font Mono*, it's pretty cool, give it a
    go. Install it from [[https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FantasqueSansMono][here]]
-** Doom Theme
+* Doom Theme
    Here I have used *doom-theme* as it is one the best and also it gives wide
    variety of inbuilt themes that one can use.I have used *doom-gruvbox* as my
    current theme, but there are various themes available in *doom-theme* which
@@ -37,7 +49,7 @@
    Also, I have used *doom-theme* based /visible bell/ which highlights the
    *modeline* for any kind of warning rather than higlighting the entire boundary
    of screen which is the default behaviour of /visible-bell/. 
-** Doom Modeline
+* Doom Modeline
    If your reading this, then I can assume that you know what *modeline* is,
    it is the bottom line in emacs where one can see various things
    (like directory, language, mode, git branch, line number etc.. ) depending
@@ -50,4 +62,16 @@
        :init(doom-modeline-mode 1))
    #+end_src
    You can find more about /doom-modeline/ [[https://github.com/seagle0128/doom-modeline][here]]
-** More to come ...
+* Line number
+  Line number is pretty important as by default line numbers are not visible in
+  emacs. So to enable this, put this piece of code into your *init.el*
+  #+begin_src emacs-lisp
+    (column-number-mode)
+    (global-display-line-numbers-mode t)
+  #+end_src
+  This will enable line number as well as column number(you can see column number
+  in modeline.) \\
+  If you want to go to a specific line then just press ~M-g M-g~ and type the line
+  number.
+* Counsel
+  
