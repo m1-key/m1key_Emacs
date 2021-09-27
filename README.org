@@ -4,10 +4,10 @@
   
 * m1keymacs
 ** Package Source
-   Here I have used multiple package sources like *melpa*, *elpa* and *org*. \\
+   Here I have used multiple package sources like *melpa*, *elpa* and *org*.\\
    *Elpa* is the default package archive of emacs.\\
    *Melpa* gives us wide range of useful as well as notorious packages which we
-   can use to customise emacs. \\
+   can use to customise emacs.\\
 ** Setting Custom Font
    #+begin_src emacs-lisp
      (set-face-attribute 'default nil
