@@ -76,14 +76,14 @@
 * Ivy
   Ivy is an interactive interface for completion in Emacs. It gives you suggestion
   in the minibuffer which you can select.
-  There is **Swiper** which is pretty good. It replaces the in-built emacs I-search.
+  There is *Swiper* which is pretty good. It replaces the in-built emacs I-search.
   You can find more about ivy [[https://oremacs.com/swiper/][here]]
 * Counsel
   Counsel enhances the ~ivy-mode~ and give a different and fast way for movement in
   the directories, providing versions of common Emacs commands that are
   customised to make the best use of Ivy. For example, ~counsel-find-file~ has some
   additional keybindings. Pressing ~DEL~ will move you to the parent directory.
-  Put the below code into your **init.el**.
+  Put the below code into your *init.el*.
   #+begin_src emacs-lisp
     (use-package counsel
       :bind (("M-x" . counsel-M-x)
@@ -107,12 +107,12 @@
 * Helpful
   ~helpful~ gives a brief description about the command of the function that appears
   in the minibuffer.
-* Magit
+* Magit 
   ~magit~ is one of the best package present in emacs. It helps you a lot in maintaining
   your repositories. Just press ~C-x g~ in your repository and it will activate the
   magit mode. There you will be able to see all the commits, unstaged files, untracked
   files and all other stuffs.
-  Put this into your **init.el**
+  Put this into your *init.el*
   #+begin_src emacs-lisp
     (use-package magit
       :bind ("C-M-;" . magit-status)
@@ -126,24 +126,26 @@
   ~forge~ is a beast of a package. It helps us to create pull request, create issue,
   commenting on PRs or issues, and many more just from emacs, you don't have to go
   github to do all this, you can do all this from emacs itself. How amazing is that.
-  Just press ~C-x g~ and then ~'~ , it will give commands to create issue, PRs and
+  Just press ~C-x g~ and then press ' , it will give commands to create issue, PRs and
   many more.
   For example you can press ~c i~ to create issue, you can add labels, assignees from
   emacs itself.\\
   Now comes the hard part, how to make it work. For that follow the below steps:
   1. First create ~.authinfo.gpg~ file with following content.\\
-     ~machine api.github.com login username^forge password ghub_token~ \\
-     In this, replace username with your github username and ghub_token with your
-     personal access token.\\
+     #+begin_src emacs-lisp
+     machine api.github.com login username^forge password ghub_token  
+     #+end_src
+     In this, replace ~username~ with your github username and ghub_token with your
+     personal access token.  
      You can create your personal access token by going into ~Settings->Developer Settings->Personal access token->Generate new token~
      Now in this select the following fields ~repo, user, read:org(under admin:org tab)~.
      Copy the token and replace ~ghub_token~ with that.
-  2. Now add this code into your **init.el**
+  2. Now add this code into your *init.el*
      #+begin_src emacs-lisp
        (setq auth-sources '("~/.authinfo.gpg"))
      #+end_src
      Make sure path of ~.authinfo.gpg~ is correct.
-  3. Now add ~forge~ into your **init.el**
+  3. Now add ~forge~ into your *init.el*
      #+begin_src emacs-lisp
        (use-package forge
 	 :after magit)
